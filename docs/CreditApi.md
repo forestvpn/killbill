@@ -1,19 +1,16 @@
 # killbill.CreditApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_credits**](CreditApi.md#create_credits) | **POST** /1.0/kb/credits | Create a credit
 [**get_credit**](CreditApi.md#get_credit) | **GET** /1.0/kb/credits/{creditId} | Retrieve a credit by id
 
-
 # **create_credits**
-> list[InvoiceItem] create_credits(body, x_killbill_created_by, auto_commit=auto_commit, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[InvoiceItem] create_credits(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, auto_commit=auto_commit, plugin_property=plugin_property)
 
 Create a credit
-
-
 
 ### Example
 ```python
@@ -32,8 +29,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -42,14 +38,14 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.CreditApi(killbill.ApiClient(configuration))
 body = [killbill.InvoiceItem()] # list[InvoiceItem] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-auto_commit = false # bool |  (optional) (default to false)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+auto_commit = false # bool |  (optional) (default to false)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Create a credit
-    api_response = api_instance.create_credits(body, x_killbill_created_by, auto_commit=auto_commit, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_credits(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, auto_commit=auto_commit, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CreditApi->create_credits: %s\n" % e)
@@ -61,10 +57,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**list[InvoiceItem]**](InvoiceItem.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **auto_commit** | **bool**|  | [optional] [default to false]
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **auto_commit** | **bool**|  | [optional] [default to false]
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -86,8 +82,6 @@ Name | Type | Description  | Notes
 
 Retrieve a credit by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -105,15 +99,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.CreditApi(killbill.ApiClient(configuration))
-credit_id = 'credit_id_example' # str | 
+credit_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve a credit by id

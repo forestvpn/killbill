@@ -1,6 +1,6 @@
 # killbill.AdminApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,13 +13,10 @@ Method | HTTP request | Description
 [**trigger_invoice_generation_for_parked_accounts**](AdminApi.md#trigger_invoice_generation_for_parked_accounts) | **POST** /1.0/kb/admin/invoices | Trigger an invoice generation for all parked accounts
 [**update_payment_transaction_state**](AdminApi.md#update_payment_transaction_state) | **PUT** /1.0/kb/admin/payments/{paymentId}/transactions/{paymentTransactionId} | Update existing paymentTransaction and associated payment state
 
-
 # **get_queue_entries**
 > get_queue_entries(account_id=account_id, queue_name=queue_name, service_name=service_name, with_history=with_history, min_date=min_date, max_date=max_date, with_in_processing=with_in_processing, with_bus_events=with_bus_events, with_notifications=with_notifications)
 
 Get queues entries
-
-
 
 ### Example
 ```python
@@ -38,15 +35,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AdminApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 queue_name = 'queue_name_example' # str |  (optional)
 service_name = 'service_name_example' # str |  (optional)
 with_history = true # bool |  (optional) (default to true)
@@ -88,7 +84,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -96,8 +92,6 @@ void (empty response body)
 > invalidates_cache(cache_name=cache_name)
 
 Invalidates the given Cache if specified, otherwise invalidates all caches
-
-
 
 ### Example
 ```python
@@ -116,8 +110,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -150,7 +143,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -158,8 +151,6 @@ void (empty response body)
 > invalidates_cache_by_account(account_id)
 
 Invalidates Caches per account level
-
-
 
 ### Example
 ```python
@@ -178,15 +169,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AdminApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Invalidates Caches per account level
@@ -212,7 +202,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -220,8 +210,6 @@ void (empty response body)
 > invalidates_cache_by_tenant()
 
 Invalidates Caches per tenant level
-
-
 
 ### Example
 ```python
@@ -240,8 +228,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -270,7 +257,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -278,8 +265,6 @@ void (empty response body)
 > put_in_rotation()
 
 Put the host back into rotation
-
-
 
 ### Example
 ```python
@@ -298,8 +283,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -328,7 +312,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -336,8 +320,6 @@ void (empty response body)
 > put_out_of_rotation()
 
 Put the host out of rotation
-
-
 
 ### Example
 ```python
@@ -356,8 +338,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -386,7 +367,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -394,8 +375,6 @@ void (empty response body)
 > trigger_invoice_generation_for_parked_accounts(x_killbill_created_by, offset=offset, limit=limit, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Trigger an invoice generation for all parked accounts
-
-
 
 ### Example
 ```python
@@ -414,8 +393,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -455,17 +433,15 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_payment_transaction_state**
-> update_payment_transaction_state(payment_id, payment_transaction_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> update_payment_transaction_state(body, x_killbill_created_by, payment_id, payment_transaction_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Update existing paymentTransaction and associated payment state
-
-
 
 ### Example
 ```python
@@ -484,24 +460,23 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AdminApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
-payment_transaction_id = 'payment_transaction_id_example' # str | 
 body = killbill.AdminPayment() # AdminPayment | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
+payment_transaction_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Update existing paymentTransaction and associated payment state
-    api_instance.update_payment_transaction_state(payment_id, payment_transaction_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.update_payment_transaction_state(body, x_killbill_created_by, payment_id, payment_transaction_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling AdminApi->update_payment_transaction_state: %s\n" % e)
 ```
@@ -510,10 +485,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
- **payment_transaction_id** | [**str**](.md)|  | 
  **body** | [**AdminPayment**](AdminPayment.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **payment_id** | [**str**](.md)|  | 
+ **payment_transaction_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -528,7 +503,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

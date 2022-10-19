@@ -1,6 +1,6 @@
 # killbill.TagDefinitionApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,13 +10,10 @@ Method | HTTP request | Description
 [**get_tag_definition_audit_logs_with_history**](TagDefinitionApi.md#get_tag_definition_audit_logs_with_history) | **GET** /1.0/kb/tagDefinitions/{tagDefinitionId}/auditLogsWithHistory | Retrieve tag definition audit logs with history by id
 [**get_tag_definitions**](TagDefinitionApi.md#get_tag_definitions) | **GET** /1.0/kb/tagDefinitions | List tag definitions
 
-
 # **create_tag_definition**
 > TagDefinition create_tag_definition(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Create a tag definition
-
-
 
 ### Example
 ```python
@@ -35,8 +32,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -85,8 +81,6 @@ Name | Type | Description  | Notes
 
 Delete a tag definition
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -104,15 +98,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.TagDefinitionApi(killbill.ApiClient(configuration))
-tag_definition_id = 'tag_definition_id_example' # str | 
+tag_definition_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
@@ -144,7 +137,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -152,8 +145,6 @@ void (empty response body)
 > TagDefinition get_tag_definition(tag_definition_id, audit=audit)
 
 Retrieve a tag definition
-
-
 
 ### Example
 ```python
@@ -172,15 +163,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.TagDefinitionApi(killbill.ApiClient(configuration))
-tag_definition_id = 'tag_definition_id_example' # str | 
+tag_definition_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 audit = 'NONE' # str |  (optional) (default to NONE)
 
 try:
@@ -218,8 +208,6 @@ Name | Type | Description  | Notes
 
 Retrieve tag definition audit logs with history by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -237,15 +225,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.TagDefinitionApi(killbill.ApiClient(configuration))
-tag_definition_id = 'tag_definition_id_example' # str | 
+tag_definition_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve tag definition audit logs with history by id
@@ -281,8 +268,6 @@ Name | Type | Description  | Notes
 
 List tag definitions
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -300,8 +285,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'

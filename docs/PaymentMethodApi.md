@@ -1,6 +1,6 @@
 # killbill.PaymentMethodApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,13 +15,10 @@ Method | HTTP request | Description
 [**modify_payment_method_custom_fields**](PaymentMethodApi.md#modify_payment_method_custom_fields) | **PUT** /1.0/kb/paymentMethods/{paymentMethodId}/customFields | Modify custom fields to payment method
 [**search_payment_methods**](PaymentMethodApi.md#search_payment_methods) | **GET** /1.0/kb/paymentMethods/search/{searchKey} | Search payment methods
 
-
 # **create_payment_method_custom_fields**
-> list[CustomField] create_payment_method_custom_fields(payment_method_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[CustomField] create_payment_method_custom_fields(body, x_killbill_created_by, payment_method_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add custom fields to payment method
-
-
 
 ### Example
 ```python
@@ -40,23 +37,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentMethodApi(killbill.ApiClient(configuration))
-payment_method_id = 'payment_method_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add custom fields to payment method
-    api_response = api_instance.create_payment_method_custom_fields(payment_method_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_payment_method_custom_fields(body, x_killbill_created_by, payment_method_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentMethodApi->create_payment_method_custom_fields: %s\n" % e)
@@ -66,9 +62,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_method_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **payment_method_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -92,8 +88,6 @@ Name | Type | Description  | Notes
 
 Delete a payment method
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -111,15 +105,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentMethodApi(killbill.ApiClient(configuration))
-payment_method_id = 'payment_method_id_example' # str | 
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 delete_default_pm_with_auto_pay_off = false # bool |  (optional) (default to false)
 force_default_pm_deletion = false # bool |  (optional) (default to false)
@@ -157,7 +150,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -165,8 +158,6 @@ void (empty response body)
 > delete_payment_method_custom_fields(payment_method_id, x_killbill_created_by, custom_field=custom_field, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Remove custom fields from payment method
-
-
 
 ### Example
 ```python
@@ -185,15 +176,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentMethodApi(killbill.ApiClient(configuration))
-payment_method_id = 'payment_method_id_example' # str | 
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 custom_field = ['custom_field_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -226,8 +216,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -235,8 +225,6 @@ void (empty response body)
 > PaymentMethod get_payment_method(payment_method_id, included_deleted=included_deleted, with_plugin_info=with_plugin_info, plugin_property=plugin_property, audit=audit)
 
 Retrieve a payment method by id
-
-
 
 ### Example
 ```python
@@ -255,15 +243,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentMethodApi(killbill.ApiClient(configuration))
-payment_method_id = 'payment_method_id_example' # str | 
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 included_deleted = false # bool |  (optional) (default to false)
 with_plugin_info = false # bool |  (optional) (default to false)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
@@ -307,8 +294,6 @@ Name | Type | Description  | Notes
 
 Retrieve payment method audit logs with history by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -326,15 +311,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentMethodApi(killbill.ApiClient(configuration))
-payment_method_id = 'payment_method_id_example' # str | 
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve payment method audit logs with history by id
@@ -370,8 +354,6 @@ Name | Type | Description  | Notes
 
 Retrieve a payment method by external key
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -389,8 +371,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -441,8 +422,6 @@ Name | Type | Description  | Notes
 
 Retrieve payment method custom fields
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -460,15 +439,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentMethodApi(killbill.ApiClient(configuration))
-payment_method_id = 'payment_method_id_example' # str | 
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 audit = 'NONE' # str |  (optional) (default to NONE)
 
 try:
@@ -506,8 +484,6 @@ Name | Type | Description  | Notes
 
 List payment methods
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -525,8 +501,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -575,11 +550,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **modify_payment_method_custom_fields**
-> modify_payment_method_custom_fields(payment_method_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> modify_payment_method_custom_fields(body, x_killbill_created_by, payment_method_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Modify custom fields to payment method
-
-
 
 ### Example
 ```python
@@ -598,23 +571,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentMethodApi(killbill.ApiClient(configuration))
-payment_method_id = 'payment_method_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Modify custom fields to payment method
-    api_instance.modify_payment_method_custom_fields(payment_method_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.modify_payment_method_custom_fields(body, x_killbill_created_by, payment_method_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling PaymentMethodApi->modify_payment_method_custom_fields: %s\n" % e)
 ```
@@ -623,9 +595,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_method_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **payment_method_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -640,7 +612,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -648,8 +620,6 @@ void (empty response body)
 > list[PaymentMethod] search_payment_methods(search_key, offset=offset, limit=limit, plugin_name=plugin_name, with_plugin_info=with_plugin_info, plugin_property=plugin_property, audit=audit)
 
 Search payment methods
-
-
 
 ### Example
 ```python
@@ -668,8 +638,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'

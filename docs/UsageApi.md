@@ -1,6 +1,6 @@
 # killbill.UsageApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,13 +8,10 @@ Method | HTTP request | Description
 [**get_usage**](UsageApi.md#get_usage) | **GET** /1.0/kb/usages/{subscriptionId}/{unitType} | Retrieve usage for a subscription and unit type
 [**record_usage**](UsageApi.md#record_usage) | **POST** /1.0/kb/usages | Record usage for a subscription
 
-
 # **get_all_usage**
 > RolledUpUsage get_all_usage(subscription_id, start_date=start_date, end_date=end_date)
 
 Retrieve usage for a subscription
-
-
 
 ### Example
 ```python
@@ -33,15 +30,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.UsageApi(killbill.ApiClient(configuration))
-subscription_id = 'subscription_id_example' # str | 
+subscription_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 start_date = '2013-10-20' # date |  (optional)
 end_date = '2013-10-20' # date |  (optional)
 
@@ -81,8 +77,6 @@ Name | Type | Description  | Notes
 
 Retrieve usage for a subscription and unit type
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -100,15 +94,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.UsageApi(killbill.ApiClient(configuration))
-subscription_id = 'subscription_id_example' # str | 
+subscription_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 unit_type = 'unit_type_example' # str | 
 start_date = '2013-10-20' # date |  (optional)
 end_date = '2013-10-20' # date |  (optional)
@@ -150,8 +143,6 @@ Name | Type | Description  | Notes
 
 Record usage for a subscription
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -169,8 +160,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -209,7 +199,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

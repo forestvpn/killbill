@@ -1,6 +1,6 @@
 # killbill.OverdueApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,13 +9,10 @@ Method | HTTP request | Description
 [**upload_overdue_config_json**](OverdueApi.md#upload_overdue_config_json) | **POST** /1.0/kb/overdue | Upload the full overdue config as JSON
 [**upload_overdue_config_xml**](OverdueApi.md#upload_overdue_config_xml) | **POST** /1.0/kb/overdue/xml | Upload the full overdue config as XML
 
-
 # **get_overdue_config_json**
 > Overdue get_overdue_config_json()
 
 Retrieve the overdue config as JSON
-
-
 
 ### Example
 ```python
@@ -34,8 +31,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -74,8 +70,6 @@ This endpoint does not need any parameter.
 
 Retrieve the overdue config as XML
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -93,8 +87,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -133,8 +126,6 @@ This endpoint does not need any parameter.
 
 Upload the full overdue config as JSON
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -152,8 +143,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -202,8 +192,6 @@ Name | Type | Description  | Notes
 
 Upload the full overdue config as XML
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -221,8 +209,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -246,7 +233,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
@@ -262,7 +249,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: text/xml
- - **Accept**: Not defined
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

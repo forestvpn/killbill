@@ -1,6 +1,6 @@
 # killbill.PaymentApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,13 +33,10 @@ Method | HTTP request | Description
 [**void_payment**](PaymentApi.md#void_payment) | **DELETE** /1.0/kb/payments/{paymentId} | Void an existing payment
 [**void_payment_by_external_key**](PaymentApi.md#void_payment_by_external_key) | **DELETE** /1.0/kb/payments | Void an existing payment
 
-
 # **cancel_scheduled_payment_transaction_by_external_key**
 > cancel_scheduled_payment_transaction_by_external_key(transaction_external_key, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Cancels a scheduled payment attempt retry
-
-
 
 ### Example
 ```python
@@ -58,8 +55,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -97,8 +93,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -106,8 +102,6 @@ void (empty response body)
 > cancel_scheduled_payment_transaction_by_id(payment_transaction_id, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Cancels a scheduled payment attempt retry
-
-
 
 ### Example
 ```python
@@ -126,15 +120,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_transaction_id = 'payment_transaction_id_example' # str | 
+payment_transaction_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
@@ -165,17 +158,15 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **capture_authorization**
-> Payment capture_authorization(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment capture_authorization(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Capture an existing authorization
-
-
 
 ### Example
 ```python
@@ -194,25 +185,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Capture an existing authorization
-    api_response = api_instance.capture_authorization(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.capture_authorization(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->capture_authorization: %s\n" % e)
@@ -222,13 +212,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **payment_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -246,11 +236,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **capture_authorization_by_external_key**
-> Payment capture_authorization_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment capture_authorization_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Capture an existing authorization
-
-
 
 ### Example
 ```python
@@ -269,8 +257,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -279,14 +266,14 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Capture an existing authorization
-    api_response = api_instance.capture_authorization_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.capture_authorization_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->capture_authorization_by_external_key: %s\n" % e)
@@ -298,10 +285,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -319,11 +306,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chargeback_payment**
-> Payment chargeback_payment(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment chargeback_payment(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Record a chargeback
-
-
 
 ### Example
 ```python
@@ -342,25 +327,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Record a chargeback
-    api_response = api_instance.chargeback_payment(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.chargeback_payment(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->chargeback_payment: %s\n" % e)
@@ -370,13 +354,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **payment_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -394,11 +378,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chargeback_payment_by_external_key**
-> Payment chargeback_payment_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment chargeback_payment_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Record a chargeback
-
-
 
 ### Example
 ```python
@@ -417,8 +399,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -427,14 +408,14 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Record a chargeback
-    api_response = api_instance.chargeback_payment_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.chargeback_payment_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->chargeback_payment_by_external_key: %s\n" % e)
@@ -446,10 +427,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -467,11 +448,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chargeback_reversal_payment**
-> Payment chargeback_reversal_payment(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment chargeback_reversal_payment(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Record a chargeback reversal
-
-
 
 ### Example
 ```python
@@ -490,25 +469,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Record a chargeback reversal
-    api_response = api_instance.chargeback_reversal_payment(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.chargeback_reversal_payment(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->chargeback_reversal_payment: %s\n" % e)
@@ -518,13 +496,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **payment_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -542,11 +520,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chargeback_reversal_payment_by_external_key**
-> Payment chargeback_reversal_payment_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment chargeback_reversal_payment_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Record a chargeback reversal
-
-
 
 ### Example
 ```python
@@ -565,8 +541,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -575,14 +550,14 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Record a chargeback reversal
-    api_response = api_instance.chargeback_reversal_payment_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.chargeback_reversal_payment_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->chargeback_reversal_payment_by_external_key: %s\n" % e)
@@ -594,10 +569,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -615,11 +590,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **complete_transaction**
-> complete_transaction(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> complete_transaction(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Complete an existing transaction
-
-
 
 ### Example
 ```python
@@ -638,25 +611,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Complete an existing transaction
-    api_instance.complete_transaction(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.complete_transaction(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 except ApiException as e:
     print("Exception when calling PaymentApi->complete_transaction: %s\n" % e)
 ```
@@ -665,13 +637,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **payment_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -684,16 +656,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **complete_transaction_by_external_key**
-> complete_transaction_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> complete_transaction_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Complete an existing transaction
-
-
 
 ### Example
 ```python
@@ -712,8 +682,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -722,14 +691,14 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Complete an existing transaction
-    api_instance.complete_transaction_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.complete_transaction_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 except ApiException as e:
     print("Exception when calling PaymentApi->complete_transaction_by_external_key: %s\n" % e)
 ```
@@ -740,10 +709,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -756,16 +725,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_combo_payment**
-> Payment create_combo_payment(body, x_killbill_created_by, control_plugin_name=control_plugin_name, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment create_combo_payment(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name)
 
 Combo api to create a new payment transaction on a existing (or not) account 
-
-
 
 ### Example
 ```python
@@ -784,8 +751,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -794,13 +760,13 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
 body = killbill.ComboPaymentTransaction() # ComboPaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
 
 try:
     # Combo api to create a new payment transaction on a existing (or not) account 
-    api_response = api_instance.create_combo_payment(body, x_killbill_created_by, control_plugin_name=control_plugin_name, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_combo_payment(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->create_combo_payment: %s\n" % e)
@@ -812,9 +778,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**ComboPaymentTransaction**](ComboPaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -832,11 +798,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_payment_custom_fields**
-> list[CustomField] create_payment_custom_fields(payment_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[CustomField] create_payment_custom_fields(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add custom fields to payment
-
-
 
 ### Example
 ```python
@@ -855,23 +819,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add custom fields to payment
-    api_response = api_instance.create_payment_custom_fields(payment_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_payment_custom_fields(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->create_payment_custom_fields: %s\n" % e)
@@ -881,9 +844,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **payment_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -903,11 +866,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_payment_tags**
-> list[Tag] create_payment_tags(payment_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[Tag] create_payment_tags(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add tags to payment payment
-
-
 
 ### Example
 ```python
@@ -926,23 +887,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
-body = [killbill.list[str]()] # list[str] | 
+body = ['body_example'] # list[str] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add tags to payment payment
-    api_response = api_instance.create_payment_tags(payment_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_payment_tags(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->create_payment_tags: %s\n" % e)
@@ -952,9 +912,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
- **body** | **list[str]**|  | 
+ **body** | [**list[str]**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **payment_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -978,8 +938,6 @@ Name | Type | Description  | Notes
 
 Remove custom fields from payment payment
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -997,15 +955,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 custom_field = ['custom_field_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -1038,8 +995,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1047,8 +1004,6 @@ void (empty response body)
 > delete_payment_tags(payment_id, x_killbill_created_by, tag_def=tag_def, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Remove tags from payment payment
-
-
 
 ### Example
 ```python
@@ -1067,15 +1022,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 tag_def = ['tag_def_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -1108,8 +1062,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1117,8 +1071,6 @@ void (empty response body)
 > Payment get_payment(payment_id, with_plugin_info=with_plugin_info, with_attempts=with_attempts, plugin_property=plugin_property, audit=audit)
 
 Retrieve a payment by id
-
-
 
 ### Example
 ```python
@@ -1137,15 +1089,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 with_plugin_info = false # bool |  (optional) (default to false)
 with_attempts = false # bool |  (optional) (default to false)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
@@ -1189,8 +1140,6 @@ Name | Type | Description  | Notes
 
 Retrieve payment attempt audit logs with history by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1208,15 +1157,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_attempt_id = 'payment_attempt_id_example' # str | 
+payment_attempt_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve payment attempt audit logs with history by id
@@ -1252,8 +1200,6 @@ Name | Type | Description  | Notes
 
 Retrieve payment audit logs with history by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1271,15 +1217,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve payment audit logs with history by id
@@ -1315,8 +1260,6 @@ Name | Type | Description  | Notes
 
 Retrieve a payment by external key
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1334,8 +1277,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1386,8 +1328,6 @@ Name | Type | Description  | Notes
 
 Retrieve payment custom fields
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1405,15 +1345,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 audit = 'NONE' # str |  (optional) (default to NONE)
 
 try:
@@ -1451,8 +1390,6 @@ Name | Type | Description  | Notes
 
 Retrieve payment payment tags
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1470,15 +1407,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 included_deleted = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
@@ -1518,8 +1454,6 @@ Name | Type | Description  | Notes
 
 Get payments
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1537,8 +1471,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1589,11 +1522,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **modify_payment_custom_fields**
-> modify_payment_custom_fields(payment_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> modify_payment_custom_fields(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Modify custom fields to payment
-
-
 
 ### Example
 ```python
@@ -1612,23 +1543,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Modify custom fields to payment
-    api_instance.modify_payment_custom_fields(payment_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.modify_payment_custom_fields(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling PaymentApi->modify_payment_custom_fields: %s\n" % e)
 ```
@@ -1637,9 +1567,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **payment_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -1654,16 +1584,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **refund_payment**
-> Payment refund_payment(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment refund_payment(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Refund an existing payment
-
-
 
 ### Example
 ```python
@@ -1682,25 +1610,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Refund an existing payment
-    api_response = api_instance.refund_payment(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.refund_payment(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->refund_payment: %s\n" % e)
@@ -1710,13 +1637,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **payment_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -1734,11 +1661,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **refund_payment_by_external_key**
-> Payment refund_payment_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment refund_payment_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Refund an existing payment
-
-
 
 ### Example
 ```python
@@ -1757,8 +1682,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1767,14 +1691,14 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Refund an existing payment
-    api_response = api_instance.refund_payment_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.refund_payment_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PaymentApi->refund_payment_by_external_key: %s\n" % e)
@@ -1786,10 +1710,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -1811,8 +1735,6 @@ Name | Type | Description  | Notes
 
 Search payments
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1830,8 +1752,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1884,11 +1805,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **void_payment**
-> void_payment(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> void_payment(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Void an existing payment
-
-
 
 ### Example
 ```python
@@ -1907,25 +1826,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
-payment_id = 'payment_id_example' # str | 
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+payment_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Void an existing payment
-    api_instance.void_payment(payment_id, body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.void_payment(body, x_killbill_created_by, payment_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 except ApiException as e:
     print("Exception when calling PaymentApi->void_payment: %s\n" % e)
 ```
@@ -1934,13 +1852,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**str**](.md)|  | 
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **payment_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -1953,16 +1871,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **void_payment_by_external_key**
-> void_payment_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> void_payment_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Void an existing payment
-
-
 
 ### Example
 ```python
@@ -1981,8 +1897,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1991,14 +1906,14 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.PaymentApi(killbill.ApiClient(configuration))
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Void an existing payment
-    api_instance.void_payment_by_external_key(body, x_killbill_created_by, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.void_payment_by_external_key(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 except ApiException as e:
     print("Exception when calling PaymentApi->void_payment_by_external_key: %s\n" % e)
 ```
@@ -2009,10 +1924,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -2025,7 +1940,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

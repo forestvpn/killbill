@@ -1,6 +1,6 @@
 # killbill.AccountApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -46,13 +46,10 @@ Method | HTTP request | Description
 [**transfer_child_credit_to_parent**](AccountApi.md#transfer_child_credit_to_parent) | **PUT** /1.0/kb/accounts/{childAccountId}/transferCredit | Move a given child credit to the parent level
 [**update_account**](AccountApi.md#update_account) | **PUT** /1.0/kb/accounts/{accountId} | Update account
 
-
 # **add_account_blocking_state**
-> list[BlockingState] add_account_blocking_state(account_id, body, x_killbill_created_by, requested_date=requested_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[BlockingState] add_account_blocking_state(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, plugin_property=plugin_property)
 
 Block an account
-
-
 
 ### Example
 ```python
@@ -71,25 +68,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = killbill.BlockingState() # BlockingState | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-requested_date = '2013-10-20' # date |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+requested_date = '2013-10-20' # date |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Block an account
-    api_response = api_instance.add_account_blocking_state(account_id, body, x_killbill_created_by, requested_date=requested_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.add_account_blocking_state(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->add_account_blocking_state: %s\n" % e)
@@ -99,13 +95,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**BlockingState**](BlockingState.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **requested_date** | **date**|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **account_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **requested_date** | **date**|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -118,16 +114,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_email**
-> list[AccountEmail] add_email(account_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[AccountEmail] add_email(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add account email
-
-
 
 ### Example
 ```python
@@ -146,23 +140,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = killbill.AccountEmail() # AccountEmail | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add account email
-    api_response = api_instance.add_email(account_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.add_email(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->add_email: %s\n" % e)
@@ -172,9 +165,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**AccountEmail**](AccountEmail.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **account_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -198,8 +191,6 @@ Name | Type | Description  | Notes
 
 Close account
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -217,15 +208,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 cancel_all_subscriptions = false # bool |  (optional) (default to false)
 write_off_unpaid_invoices = false # bool |  (optional) (default to false)
@@ -265,7 +255,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -273,8 +263,6 @@ void (empty response body)
 > Account create_account(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Create account
-
-
 
 ### Example
 ```python
@@ -293,8 +281,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -339,11 +326,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_account_custom_fields**
-> list[CustomField] create_account_custom_fields(account_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[CustomField] create_account_custom_fields(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add custom fields to account
-
-
 
 ### Example
 ```python
@@ -362,23 +347,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add custom fields to account
-    api_response = api_instance.create_account_custom_fields(account_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_account_custom_fields(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->create_account_custom_fields: %s\n" % e)
@@ -388,9 +372,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **account_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -410,11 +394,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_account_tags**
-> list[Tag] create_account_tags(account_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[Tag] create_account_tags(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add tags to account
-
-
 
 ### Example
 ```python
@@ -433,23 +415,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
-body = [killbill.list[str]()] # list[str] | 
+body = ['body_example'] # list[str] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add tags to account
-    api_response = api_instance.create_account_tags(account_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_account_tags(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->create_account_tags: %s\n" % e)
@@ -459,9 +440,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
- **body** | **list[str]**|  | 
+ **body** | [**list[str]**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **account_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -481,11 +462,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_payment_method**
-> PaymentMethod create_payment_method(account_id, body, x_killbill_created_by, is_default=is_default, pay_all_unpaid_invoices=pay_all_unpaid_invoices, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> PaymentMethod create_payment_method(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, is_default=is_default, pay_all_unpaid_invoices=pay_all_unpaid_invoices, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Add a payment method
-
-
 
 ### Example
 ```python
@@ -504,27 +483,26 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = killbill.PaymentMethod() # PaymentMethod | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
+x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
+x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 is_default = false # bool |  (optional) (default to false)
 pay_all_unpaid_invoices = false # bool |  (optional) (default to false)
 control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
-x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
-x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add a payment method
-    api_response = api_instance.create_payment_method(account_id, body, x_killbill_created_by, is_default=is_default, pay_all_unpaid_invoices=pay_all_unpaid_invoices, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_payment_method(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, is_default=is_default, pay_all_unpaid_invoices=pay_all_unpaid_invoices, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->create_payment_method: %s\n" % e)
@@ -534,15 +512,15 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**PaymentMethod**](PaymentMethod.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **account_id** | [**str**](.md)|  | 
+ **x_killbill_reason** | **str**|  | [optional] 
+ **x_killbill_comment** | **str**|  | [optional] 
  **is_default** | **bool**|  | [optional] [default to false]
  **pay_all_unpaid_invoices** | **bool**|  | [optional] [default to false]
  **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
  **plugin_property** | [**list[str]**](str.md)|  | [optional] 
- **x_killbill_reason** | **str**|  | [optional] 
- **x_killbill_comment** | **str**|  | [optional] 
 
 ### Return type
 
@@ -564,8 +542,6 @@ Name | Type | Description  | Notes
 
 Remove custom fields from account
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -583,15 +559,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 custom_field = ['custom_field_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -624,8 +599,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -633,8 +608,6 @@ void (empty response body)
 > delete_account_tags(account_id, x_killbill_created_by, tag_def=tag_def, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Remove tags from account
-
-
 
 ### Example
 ```python
@@ -653,15 +626,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 tag_def = ['tag_def_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -694,8 +666,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -703,8 +675,6 @@ void (empty response body)
 > Account get_account(account_id, account_with_balance=account_with_balance, account_with_balance_and_cba=account_with_balance_and_cba, audit=audit)
 
 Retrieve an account by id
-
-
 
 ### Example
 ```python
@@ -723,15 +693,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 account_with_balance = false # bool |  (optional) (default to false)
 account_with_balance_and_cba = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
@@ -773,8 +742,6 @@ Name | Type | Description  | Notes
 
 Retrieve audit logs by account id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -792,15 +759,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve audit logs by account id
@@ -836,8 +802,6 @@ Name | Type | Description  | Notes
 
 Retrieve account audit logs with history by account id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -855,15 +819,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve account audit logs with history by account id
@@ -899,8 +862,6 @@ Name | Type | Description  | Notes
 
 Retrieve bundles for account
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -918,15 +879,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 external_key = 'external_key_example' # str |  (optional)
 bundles_filter = 'bundles_filter_example' # str |  (optional)
 audit = 'NONE' # str |  (optional) (default to NONE)
@@ -968,8 +928,6 @@ Name | Type | Description  | Notes
 
 Retrieve an account by external key
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -987,8 +945,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1037,8 +994,6 @@ Name | Type | Description  | Notes
 
 Retrieve account custom fields
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1056,15 +1011,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 audit = 'NONE' # str |  (optional) (default to NONE)
 
 try:
@@ -1102,8 +1056,6 @@ Name | Type | Description  | Notes
 
 Retrieve account email audit logs with history by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1121,16 +1073,15 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
-account_email_id = 'account_email_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
+account_email_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve account email audit logs with history by id
@@ -1167,8 +1118,6 @@ Name | Type | Description  | Notes
 
 Retrieve account tags
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1186,15 +1135,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 included_deleted = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
@@ -1234,8 +1182,6 @@ Name | Type | Description  | Notes
 
 Retrieve account timeline
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1253,15 +1199,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 parallel = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
@@ -1301,8 +1246,6 @@ Name | Type | Description  | Notes
 
 List accounts
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1320,8 +1263,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1372,8 +1314,6 @@ Name | Type | Description  | Notes
 
 Retrieve account customFields
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1391,15 +1331,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 object_type = 'object_type_example' # str |  (optional)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
@@ -1439,8 +1378,6 @@ Name | Type | Description  | Notes
 
 Retrieve account tags
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1458,15 +1395,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 object_type = 'object_type_example' # str |  (optional)
 included_deleted = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
@@ -1508,8 +1444,6 @@ Name | Type | Description  | Notes
 
 Retrieve blocking state audit logs with history by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1527,15 +1461,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-blocking_id = 'blocking_id_example' # str | 
+blocking_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve blocking state audit logs with history by id
@@ -1571,8 +1504,6 @@ Name | Type | Description  | Notes
 
 Retrieve blocking states for account
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1590,15 +1521,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 blocking_state_types = ['blocking_state_types_example'] # list[str] |  (optional)
 blocking_state_svcs = ['blocking_state_svcs_example'] # list[str] |  (optional)
 audit = 'NONE' # str |  (optional) (default to NONE)
@@ -1640,8 +1570,6 @@ Name | Type | Description  | Notes
 
 List children accounts
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1659,15 +1587,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 account_with_balance = false # bool |  (optional) (default to false)
 account_with_balance_and_cba = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
@@ -1709,8 +1636,6 @@ Name | Type | Description  | Notes
 
 Retrieve an account emails
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1728,15 +1653,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve an account emails
@@ -1772,8 +1696,6 @@ Name | Type | Description  | Notes
 
 Retrieve account invoice payments
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1791,15 +1713,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 with_plugin_info = false # bool |  (optional) (default to false)
 with_attempts = false # bool |  (optional) (default to false)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
@@ -1839,11 +1760,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_invoices_for_account**
-> list[Invoice] get_invoices_for_account(account_id, start_date=start_date, end_date=end_date, with_migration_invoices=with_migration_invoices, unpaid_invoices_only=unpaid_invoices_only, include_voided_invoices=include_voided_invoices, invoices_filter=invoices_filter, audit=audit)
+> list[Invoice] get_invoices_for_account(account_id, start_date=start_date, end_date=end_date, with_migration_invoices=with_migration_invoices, unpaid_invoices_only=unpaid_invoices_only, include_voided_invoices=include_voided_invoices, audit=audit)
 
 Retrieve account invoices
-
-
 
 ### Example
 ```python
@@ -1862,26 +1781,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 start_date = '2013-10-20' # date |  (optional)
 end_date = '2013-10-20' # date |  (optional)
 with_migration_invoices = false # bool |  (optional) (default to false)
 unpaid_invoices_only = false # bool |  (optional) (default to false)
 include_voided_invoices = false # bool |  (optional) (default to false)
-invoices_filter = 'invoices_filter_example' # str |  (optional)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
 try:
     # Retrieve account invoices
-    api_response = api_instance.get_invoices_for_account(account_id, start_date=start_date, end_date=end_date, with_migration_invoices=with_migration_invoices, unpaid_invoices_only=unpaid_invoices_only, include_voided_invoices=include_voided_invoices, invoices_filter=invoices_filter, audit=audit)
+    api_response = api_instance.get_invoices_for_account(account_id, start_date=start_date, end_date=end_date, with_migration_invoices=with_migration_invoices, unpaid_invoices_only=unpaid_invoices_only, include_voided_invoices=include_voided_invoices, audit=audit)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->get_invoices_for_account: %s\n" % e)
@@ -1897,7 +1814,6 @@ Name | Type | Description  | Notes
  **with_migration_invoices** | **bool**|  | [optional] [default to false]
  **unpaid_invoices_only** | **bool**|  | [optional] [default to false]
  **include_voided_invoices** | **bool**|  | [optional] [default to false]
- **invoices_filter** | **str**|  | [optional] 
  **audit** | **str**|  | [optional] [default to NONE]
 
 ### Return type
@@ -1920,8 +1836,6 @@ Name | Type | Description  | Notes
 
 Retrieve overdue state for account
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1939,15 +1853,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve overdue state for account
@@ -1983,8 +1896,6 @@ Name | Type | Description  | Notes
 
 Retrieve account payment methods
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -2002,15 +1913,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 with_plugin_info = false # bool |  (optional) (default to false)
 included_deleted = false # bool |  (optional) (default to false)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
@@ -2054,8 +1964,6 @@ Name | Type | Description  | Notes
 
 Retrieve account payments
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -2073,15 +1981,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 with_attempts = false # bool |  (optional) (default to false)
 with_plugin_info = false # bool |  (optional) (default to false)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
@@ -2121,11 +2028,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **modify_account_custom_fields**
-> modify_account_custom_fields(account_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> modify_account_custom_fields(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Modify custom fields to account
-
-
 
 ### Example
 ```python
@@ -2144,23 +2049,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Modify custom fields to account
-    api_instance.modify_account_custom_fields(account_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.modify_account_custom_fields(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling AccountApi->modify_account_custom_fields: %s\n" % e)
 ```
@@ -2169,9 +2073,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **account_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -2186,16 +2090,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pay_all_invoices**
-> list[Invoice] pay_all_invoices(account_id, x_killbill_created_by, payment_method_id=payment_method_id, external_payment=external_payment, payment_amount=payment_amount, target_date=target_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> pay_all_invoices(account_id, x_killbill_created_by, payment_method_id=payment_method_id, external_payment=external_payment, payment_amount=payment_amount, target_date=target_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Trigger a payment for all unpaid invoices
-
-
 
 ### Example
 ```python
@@ -2214,19 +2116,18 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-payment_method_id = 'payment_method_id_example' # str |  (optional)
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 external_payment = false # bool |  (optional) (default to false)
-payment_amount = 8.14 # float |  (optional)
+payment_amount = 1.2 # float |  (optional)
 target_date = '2013-10-20' # date |  (optional)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -2234,8 +2135,7 @@ x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Trigger a payment for all unpaid invoices
-    api_response = api_instance.pay_all_invoices(account_id, x_killbill_created_by, payment_method_id=payment_method_id, external_payment=external_payment, payment_amount=payment_amount, target_date=target_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
-    pprint(api_response)
+    api_instance.pay_all_invoices(account_id, x_killbill_created_by, payment_method_id=payment_method_id, external_payment=external_payment, payment_amount=payment_amount, target_date=target_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling AccountApi->pay_all_invoices: %s\n" % e)
 ```
@@ -2256,7 +2156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Invoice]**](Invoice.md)
+void (empty response body)
 
 ### Authorization
 
@@ -2264,17 +2164,15 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **process_payment**
-> Payment process_payment(account_id, body, x_killbill_created_by, payment_method_id=payment_method_id, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment process_payment(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, payment_method_id=payment_method_id, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Trigger a payment (authorization, purchase or credit)
-
-
 
 ### Example
 ```python
@@ -2293,26 +2191,25 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = killbill.PaymentTransaction() # PaymentTransaction | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-payment_method_id = 'payment_method_id_example' # str |  (optional)
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Trigger a payment (authorization, purchase or credit)
-    api_response = api_instance.process_payment(account_id, body, x_killbill_created_by, payment_method_id=payment_method_id, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.process_payment(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, payment_method_id=payment_method_id, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->process_payment: %s\n" % e)
@@ -2322,14 +2219,14 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **account_id** | [**str**](.md)|  | 
+ **x_killbill_reason** | **str**|  | [optional] 
+ **x_killbill_comment** | **str**|  | [optional] 
  **payment_method_id** | [**str**](.md)|  | [optional] 
  **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
  **plugin_property** | [**list[str]**](str.md)|  | [optional] 
- **x_killbill_reason** | **str**|  | [optional] 
- **x_killbill_comment** | **str**|  | [optional] 
 
 ### Return type
 
@@ -2347,11 +2244,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **process_payment_by_external_key**
-> Payment process_payment_by_external_key(body, external_key, x_killbill_created_by, payment_method_id=payment_method_id, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Payment process_payment_by_external_key(body, x_killbill_created_by, external_key, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, payment_method_id=payment_method_id, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Trigger a payment using the account external key (authorization, purchase or credit)
-
-
 
 ### Example
 ```python
@@ -2370,8 +2265,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2379,17 +2273,17 @@ configuration.password = 'YOUR_PASSWORD'
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
 body = killbill.PaymentTransaction() # PaymentTransaction | 
-external_key = 'external_key_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-payment_method_id = 'payment_method_id_example' # str |  (optional)
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+external_key = 'external_key_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Trigger a payment using the account external key (authorization, purchase or credit)
-    api_response = api_instance.process_payment_by_external_key(body, external_key, x_killbill_created_by, payment_method_id=payment_method_id, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.process_payment_by_external_key(body, x_killbill_created_by, external_key, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, payment_method_id=payment_method_id, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->process_payment_by_external_key: %s\n" % e)
@@ -2400,13 +2294,13 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**PaymentTransaction**](PaymentTransaction.md)|  | 
- **external_key** | **str**|  | 
  **x_killbill_created_by** | **str**|  | 
+ **external_key** | **str**|  | 
+ **x_killbill_reason** | **str**|  | [optional] 
+ **x_killbill_comment** | **str**|  | [optional] 
  **payment_method_id** | [**str**](.md)|  | [optional] 
  **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
  **plugin_property** | [**list[str]**](str.md)|  | [optional] 
- **x_killbill_reason** | **str**|  | [optional] 
- **x_killbill_comment** | **str**|  | [optional] 
 
 ### Return type
 
@@ -2428,8 +2322,6 @@ Name | Type | Description  | Notes
 
 Rebalance account CBA
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -2447,15 +2339,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
@@ -2486,8 +2377,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2495,8 +2386,6 @@ void (empty response body)
 > refresh_payment_methods(account_id, x_killbill_created_by, plugin_name=plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Refresh account payment methods
-
-
 
 ### Example
 ```python
@@ -2515,15 +2404,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 plugin_name = 'plugin_name_example' # str |  (optional)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
@@ -2559,7 +2447,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2567,8 +2455,6 @@ void (empty response body)
 > remove_email(account_id, email, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Delete email from account
-
-
 
 ### Example
 ```python
@@ -2587,15 +2473,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 email = 'email_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -2629,7 +2514,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2637,8 +2522,6 @@ void (empty response body)
 > list[Account] search_accounts(search_key, offset=offset, limit=limit, account_with_balance=account_with_balance, account_with_balance_and_cba=account_with_balance_and_cba, audit=audit)
 
 Search accounts
-
-
 
 ### Example
 ```python
@@ -2657,8 +2540,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2711,8 +2593,6 @@ Name | Type | Description  | Notes
 
 Set the default payment method
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -2730,16 +2610,15 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
-payment_method_id = 'payment_method_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
+payment_method_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 pay_all_unpaid_invoices = false # bool |  (optional) (default to false)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
@@ -2775,8 +2654,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2784,8 +2663,6 @@ void (empty response body)
 > transfer_child_credit_to_parent(child_account_id, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Move a given child credit to the parent level
-
-
 
 ### Example
 ```python
@@ -2804,15 +2681,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-child_account_id = 'child_account_id_example' # str | 
+child_account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
@@ -2843,17 +2719,15 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_account**
-> update_account(account_id, body, x_killbill_created_by, treat_null_as_reset=treat_null_as_reset, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> update_account(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, treat_null_as_reset=treat_null_as_reset)
 
 Update account
-
-
 
 ### Example
 ```python
@@ -2872,24 +2746,23 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.AccountApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = killbill.Account() # Account | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-treat_null_as_reset = false # bool |  (optional) (default to false)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+treat_null_as_reset = false # bool |  (optional) (default to false)
 
 try:
     # Update account
-    api_instance.update_account(account_id, body, x_killbill_created_by, treat_null_as_reset=treat_null_as_reset, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.update_account(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, treat_null_as_reset=treat_null_as_reset)
 except ApiException as e:
     print("Exception when calling AccountApi->update_account: %s\n" % e)
 ```
@@ -2898,12 +2771,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**Account**](Account.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **treat_null_as_reset** | **bool**|  | [optional] [default to false]
+ **account_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **treat_null_as_reset** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -2916,7 +2789,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

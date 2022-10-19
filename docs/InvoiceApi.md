@@ -1,6 +1,6 @@
 # killbill.InvoiceApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -38,13 +38,10 @@ Method | HTTP request | Description
 [**upload_invoice_translation**](InvoiceApi.md#upload_invoice_translation) | **POST** /1.0/kb/invoices/translation/{locale} | Upload the invoice translation for the tenant
 [**void_invoice**](InvoiceApi.md#void_invoice) | **PUT** /1.0/kb/invoices/{invoiceId}/voidInvoice | Perform the action of voiding an invoice
 
-
 # **adjust_invoice_item**
-> Invoice adjust_invoice_item(invoice_id, body, x_killbill_created_by, requested_date=requested_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Invoice adjust_invoice_item(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, plugin_property=plugin_property)
 
 Adjust an invoice item
-
-
 
 ### Example
 ```python
@@ -63,25 +60,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
 body = killbill.InvoiceItem() # InvoiceItem | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-requested_date = '2013-10-20' # date |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+requested_date = '2013-10-20' # date |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Adjust an invoice item
-    api_response = api_instance.adjust_invoice_item(invoice_id, body, x_killbill_created_by, requested_date=requested_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.adjust_invoice_item(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->adjust_invoice_item: %s\n" % e)
@@ -91,13 +87,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoice_id** | [**str**](.md)|  | 
  **body** | [**InvoiceItem**](InvoiceItem.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **requested_date** | **date**|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **invoice_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **requested_date** | **date**|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -119,8 +115,6 @@ Name | Type | Description  | Notes
 
 Perform the invoice status transition from DRAFT to COMMITTED
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -138,15 +132,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
@@ -177,17 +170,15 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_external_charges**
-> list[InvoiceItem] create_external_charges(account_id, body, x_killbill_created_by, requested_date=requested_date, auto_commit=auto_commit, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[InvoiceItem] create_external_charges(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, auto_commit=auto_commit, plugin_property=plugin_property)
 
 Create external charge(s)
-
-
 
 ### Example
 ```python
@@ -206,26 +197,25 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = [killbill.InvoiceItem()] # list[InvoiceItem] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
+x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
+x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 requested_date = '2013-10-20' # date |  (optional)
 auto_commit = false # bool |  (optional) (default to false)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
-x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
-x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Create external charge(s)
-    api_response = api_instance.create_external_charges(account_id, body, x_killbill_created_by, requested_date=requested_date, auto_commit=auto_commit, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_external_charges(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, auto_commit=auto_commit, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->create_external_charges: %s\n" % e)
@@ -235,14 +225,14 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**list[InvoiceItem]**](InvoiceItem.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **account_id** | [**str**](.md)|  | 
+ **x_killbill_reason** | **str**|  | [optional] 
+ **x_killbill_comment** | **str**|  | [optional] 
  **requested_date** | **date**|  | [optional] 
  **auto_commit** | **bool**|  | [optional] [default to false]
  **plugin_property** | [**list[str]**](str.md)|  | [optional] 
- **x_killbill_reason** | **str**|  | [optional] 
- **x_killbill_comment** | **str**|  | [optional] 
 
 ### Return type
 
@@ -264,8 +254,6 @@ Name | Type | Description  | Notes
 
 Trigger an invoice generation
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -283,15 +271,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 target_date = '2013-10-20' # date |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -325,17 +312,15 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_instant_payment**
-> InvoicePayment create_instant_payment(invoice_id, body, x_killbill_created_by, external_payment=external_payment, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> InvoicePayment create_instant_payment(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, external_payment=external_payment, plugin_property=plugin_property)
 
 Trigger a payment for invoice
-
-
 
 ### Example
 ```python
@@ -354,26 +339,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
 body = killbill.InvoicePayment() # InvoicePayment | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-external_payment = false # bool |  (optional) (default to false)
-control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+external_payment = false # bool |  (optional) (default to false)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Trigger a payment for invoice
-    api_response = api_instance.create_instant_payment(invoice_id, body, x_killbill_created_by, external_payment=external_payment, control_plugin_name=control_plugin_name, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_instant_payment(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, external_payment=external_payment, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->create_instant_payment: %s\n" % e)
@@ -383,14 +366,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoice_id** | [**str**](.md)|  | 
  **body** | [**InvoicePayment**](InvoicePayment.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **external_payment** | **bool**|  | [optional] [default to false]
- **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **invoice_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **external_payment** | **bool**|  | [optional] [default to false]
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -408,11 +390,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_invoice_custom_fields**
-> list[CustomField] create_invoice_custom_fields(invoice_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[CustomField] create_invoice_custom_fields(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add custom fields to invoice
-
-
 
 ### Example
 ```python
@@ -431,23 +411,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add custom fields to invoice
-    api_response = api_instance.create_invoice_custom_fields(invoice_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_invoice_custom_fields(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->create_invoice_custom_fields: %s\n" % e)
@@ -457,9 +436,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoice_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **invoice_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -479,11 +458,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_invoice_tags**
-> list[Tag] create_invoice_tags(invoice_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[Tag] create_invoice_tags(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add tags to invoice
-
-
 
 ### Example
 ```python
@@ -502,23 +479,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
-body = [killbill.list[str]()] # list[str] | 
+body = ['body_example'] # list[str] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add tags to invoice
-    api_response = api_instance.create_invoice_tags(invoice_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_invoice_tags(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->create_invoice_tags: %s\n" % e)
@@ -528,9 +504,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoice_id** | [**str**](.md)|  | 
- **body** | **list[str]**|  | 
+ **body** | [**list[str]**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **invoice_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -550,11 +526,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_migration_invoice**
-> Invoice create_migration_invoice(account_id, body, x_killbill_created_by, target_date=target_date, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Invoice create_migration_invoice(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, target_date=target_date)
 
 Create a migration invoice
-
-
 
 ### Example
 ```python
@@ -573,24 +547,23 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = [killbill.InvoiceItem()] # list[InvoiceItem] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-target_date = '2013-10-20' # date |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+target_date = '2013-10-20' # date |  (optional)
 
 try:
     # Create a migration invoice
-    api_response = api_instance.create_migration_invoice(account_id, body, x_killbill_created_by, target_date=target_date, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_migration_invoice(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, target_date=target_date)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->create_migration_invoice: %s\n" % e)
@@ -600,12 +573,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**list[InvoiceItem]**](InvoiceItem.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **target_date** | **date**|  | [optional] 
+ **account_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **target_date** | **date**|  | [optional] 
 
 ### Return type
 
@@ -623,11 +596,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tax_items**
-> list[InvoiceItem] create_tax_items(account_id, body, x_killbill_created_by, auto_commit=auto_commit, requested_date=requested_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[InvoiceItem] create_tax_items(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, auto_commit=auto_commit, requested_date=requested_date, plugin_property=plugin_property)
 
 Create tax items
-
-
 
 ### Example
 ```python
@@ -646,26 +617,25 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str | 
 body = [killbill.InvoiceItem()] # list[InvoiceItem] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
+x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
+x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 auto_commit = false # bool |  (optional) (default to false)
 requested_date = '2013-10-20' # date |  (optional)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
-x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
-x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Create tax items
-    api_response = api_instance.create_tax_items(account_id, body, x_killbill_created_by, auto_commit=auto_commit, requested_date=requested_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_tax_items(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, auto_commit=auto_commit, requested_date=requested_date, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->create_tax_items: %s\n" % e)
@@ -675,14 +645,14 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | [**str**](.md)|  | 
  **body** | [**list[InvoiceItem]**](InvoiceItem.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **account_id** | [**str**](.md)|  | 
+ **x_killbill_reason** | **str**|  | [optional] 
+ **x_killbill_comment** | **str**|  | [optional] 
  **auto_commit** | **bool**|  | [optional] [default to false]
  **requested_date** | **date**|  | [optional] 
  **plugin_property** | [**list[str]**](str.md)|  | [optional] 
- **x_killbill_reason** | **str**|  | [optional] 
- **x_killbill_comment** | **str**|  | [optional] 
 
 ### Return type
 
@@ -704,8 +674,6 @@ Name | Type | Description  | Notes
 
 Delete a CBA item
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -723,17 +691,16 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
-invoice_item_id = 'invoice_item_id_example' # str | 
-account_id = 'account_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
+invoice_item_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
@@ -766,8 +733,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -775,8 +742,6 @@ void (empty response body)
 > delete_invoice_custom_fields(invoice_id, x_killbill_created_by, custom_field=custom_field, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Remove custom fields from invoice
-
-
 
 ### Example
 ```python
@@ -795,15 +760,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 custom_field = ['custom_field_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -836,8 +800,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -845,8 +809,6 @@ void (empty response body)
 > delete_invoice_tags(invoice_id, x_killbill_created_by, tag_def=tag_def, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Remove tags from invoice
-
-
 
 ### Example
 ```python
@@ -865,15 +827,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 tag_def = ['tag_def_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -906,17 +867,15 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_dry_run_invoice**
-> Invoice generate_dry_run_invoice(body, account_id, x_killbill_created_by, target_date=target_date, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Invoice generate_dry_run_invoice(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, target_date=target_date)
 
 Generate a dryRun invoice
-
-
 
 ### Example
 ```python
@@ -935,8 +894,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -944,15 +902,15 @@ configuration.password = 'YOUR_PASSWORD'
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
 body = killbill.InvoiceDryRun() # InvoiceDryRun | 
-account_id = 'account_id_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-target_date = '2013-10-20' # date |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+target_date = '2013-10-20' # date |  (optional)
 
 try:
     # Generate a dryRun invoice
-    api_response = api_instance.generate_dry_run_invoice(body, account_id, x_killbill_created_by, target_date=target_date, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.generate_dry_run_invoice(body, x_killbill_created_by, account_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, target_date=target_date)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->generate_dry_run_invoice: %s\n" % e)
@@ -963,11 +921,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**InvoiceDryRun**](InvoiceDryRun.md)|  | 
- **account_id** | [**str**](.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **target_date** | **date**|  | [optional] 
+ **account_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **target_date** | **date**|  | [optional] 
 
 ### Return type
 
@@ -989,8 +947,6 @@ Name | Type | Description  | Notes
 
 Retrieves the catalog translation for the tenant
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1008,8 +964,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1052,8 +1007,6 @@ Name | Type | Description  | Notes
 
 Retrieve an invoice by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1071,15 +1024,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 with_children_items = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
@@ -1119,8 +1071,6 @@ Name | Type | Description  | Notes
 
 Render an invoice as HTML
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1138,15 +1088,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Render an invoice as HTML
@@ -1182,8 +1131,6 @@ Name | Type | Description  | Notes
 
 Retrieve invoice audit logs with history by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1201,15 +1148,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve invoice audit logs with history by id
@@ -1245,8 +1191,6 @@ Name | Type | Description  | Notes
 
 Retrieve an invoice by invoice item id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1264,15 +1208,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-item_id = 'item_id_example' # str | 
+item_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 with_children_items = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
@@ -1312,8 +1255,6 @@ Name | Type | Description  | Notes
 
 Retrieve an invoice by number
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1331,8 +1272,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1379,8 +1319,6 @@ Name | Type | Description  | Notes
 
 Retrieve invoice custom fields
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1398,15 +1336,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 audit = 'NONE' # str |  (optional) (default to NONE)
 
 try:
@@ -1444,8 +1381,6 @@ Name | Type | Description  | Notes
 
 Retrieves the manualPay invoice template for the tenant
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1463,8 +1398,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1507,8 +1441,6 @@ Name | Type | Description  | Notes
 
 Retrieve invoice tags
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1526,15 +1458,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 included_deleted = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
@@ -1574,8 +1505,6 @@ Name | Type | Description  | Notes
 
 Retrieves the invoice template for the tenant
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1593,8 +1522,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1633,8 +1561,6 @@ This endpoint does not need any parameter.
 
 Retrieves the invoice translation for the tenant
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1652,8 +1578,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1696,8 +1621,6 @@ Name | Type | Description  | Notes
 
 List invoices
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1715,8 +1638,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1763,8 +1685,6 @@ Name | Type | Description  | Notes
 
 Retrieve payments associated with an invoice
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1782,15 +1702,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 with_plugin_info = false # bool |  (optional) (default to false)
 with_attempts = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
@@ -1828,11 +1747,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **modify_invoice_custom_fields**
-> modify_invoice_custom_fields(invoice_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> modify_invoice_custom_fields(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Modify custom fields to invoice
-
-
 
 ### Example
 ```python
@@ -1851,23 +1768,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Modify custom fields to invoice
-    api_instance.modify_invoice_custom_fields(invoice_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.modify_invoice_custom_fields(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling InvoiceApi->modify_invoice_custom_fields: %s\n" % e)
 ```
@@ -1876,9 +1792,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **invoice_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **invoice_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -1893,7 +1809,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1901,8 +1817,6 @@ void (empty response body)
 > list[Invoice] search_invoices(search_key, offset=offset, limit=limit, audit=audit)
 
 Search invoices
-
-
 
 ### Example
 ```python
@@ -1921,8 +1835,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1967,11 +1880,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_catalog_translation**
-> str upload_catalog_translation(locale, body, x_killbill_created_by, delete_if_exists=delete_if_exists, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> str upload_catalog_translation(body, x_killbill_created_by, locale, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, delete_if_exists=delete_if_exists)
 
 Upload the catalog translation for the tenant
-
-
 
 ### Example
 ```python
@@ -1990,24 +1901,23 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-locale = 'locale_example' # str | 
 body = 'body_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-delete_if_exists = false # bool |  (optional) (default to false)
+locale = 'locale_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+delete_if_exists = false # bool |  (optional) (default to false)
 
 try:
     # Upload the catalog translation for the tenant
-    api_response = api_instance.upload_catalog_translation(locale, body, x_killbill_created_by, delete_if_exists=delete_if_exists, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.upload_catalog_translation(body, x_killbill_created_by, locale, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, delete_if_exists=delete_if_exists)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->upload_catalog_translation: %s\n" % e)
@@ -2017,12 +1927,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **locale** | **str**|  | 
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **delete_if_exists** | **bool**|  | [optional] [default to false]
+ **locale** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **delete_if_exists** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -2040,11 +1950,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_invoice_mp_template**
-> str upload_invoice_mp_template(body, x_killbill_created_by, delete_if_exists=delete_if_exists, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> str upload_invoice_mp_template(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, delete_if_exists=delete_if_exists)
 
 Upload the manualPay invoice template for the tenant
-
-
 
 ### Example
 ```python
@@ -2063,8 +1971,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2073,13 +1980,13 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
 body = 'body_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-delete_if_exists = false # bool |  (optional) (default to false)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+delete_if_exists = false # bool |  (optional) (default to false)
 
 try:
     # Upload the manualPay invoice template for the tenant
-    api_response = api_instance.upload_invoice_mp_template(body, x_killbill_created_by, delete_if_exists=delete_if_exists, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.upload_invoice_mp_template(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, delete_if_exists=delete_if_exists)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->upload_invoice_mp_template: %s\n" % e)
@@ -2089,11 +1996,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **delete_if_exists** | **bool**|  | [optional] [default to false]
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **delete_if_exists** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -2111,11 +2018,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_invoice_template**
-> str upload_invoice_template(body, x_killbill_created_by, delete_if_exists=delete_if_exists, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> str upload_invoice_template(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, delete_if_exists=delete_if_exists)
 
 Upload the invoice template for the tenant
-
-
 
 ### Example
 ```python
@@ -2134,8 +2039,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -2144,13 +2048,13 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
 body = 'body_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-delete_if_exists = false # bool |  (optional) (default to false)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+delete_if_exists = false # bool |  (optional) (default to false)
 
 try:
     # Upload the invoice template for the tenant
-    api_response = api_instance.upload_invoice_template(body, x_killbill_created_by, delete_if_exists=delete_if_exists, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.upload_invoice_template(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, delete_if_exists=delete_if_exists)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->upload_invoice_template: %s\n" % e)
@@ -2160,11 +2064,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **delete_if_exists** | **bool**|  | [optional] [default to false]
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **delete_if_exists** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -2182,11 +2086,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_invoice_translation**
-> str upload_invoice_translation(locale, body, x_killbill_created_by, delete_if_exists=delete_if_exists, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> str upload_invoice_translation(body, x_killbill_created_by, locale, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, delete_if_exists=delete_if_exists)
 
 Upload the invoice translation for the tenant
-
-
 
 ### Example
 ```python
@@ -2205,24 +2107,23 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-locale = 'locale_example' # str | 
 body = 'body_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-delete_if_exists = false # bool |  (optional) (default to false)
+locale = 'locale_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+delete_if_exists = false # bool |  (optional) (default to false)
 
 try:
     # Upload the invoice translation for the tenant
-    api_response = api_instance.upload_invoice_translation(locale, body, x_killbill_created_by, delete_if_exists=delete_if_exists, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.upload_invoice_translation(body, x_killbill_created_by, locale, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, delete_if_exists=delete_if_exists)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->upload_invoice_translation: %s\n" % e)
@@ -2232,12 +2133,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **locale** | **str**|  | 
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **delete_if_exists** | **bool**|  | [optional] [default to false]
+ **locale** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **delete_if_exists** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -2259,8 +2160,6 @@ Name | Type | Description  | Notes
 
 Perform the action of voiding an invoice
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -2278,15 +2177,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.InvoiceApi(killbill.ApiClient(configuration))
-invoice_id = 'invoice_id_example' # str | 
+invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
@@ -2317,8 +2215,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
 # killbill.CustomFieldApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,13 +9,10 @@ Method | HTTP request | Description
 [**search_custom_fields**](CustomFieldApi.md#search_custom_fields) | **GET** /1.0/kb/customFields/search/{searchKey} | Search custom fields
 [**search_custom_fields_by_type_name**](CustomFieldApi.md#search_custom_fields_by_type_name) | **GET** /1.0/kb/customFields/search | Search custom fields by type, name and optional value
 
-
 # **get_custom_field_audit_logs_with_history**
 > list[AuditLog] get_custom_field_audit_logs_with_history(custom_field_id)
 
 Retrieve custom field audit logs with history by id
-
-
 
 ### Example
 ```python
@@ -34,15 +31,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.CustomFieldApi(killbill.ApiClient(configuration))
-custom_field_id = 'custom_field_id_example' # str | 
+custom_field_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve custom field audit logs with history by id
@@ -78,8 +74,6 @@ Name | Type | Description  | Notes
 
 List custom fields
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -97,8 +91,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -145,8 +138,6 @@ Name | Type | Description  | Notes
 
 Search custom fields
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -164,8 +155,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -214,8 +204,6 @@ Name | Type | Description  | Notes
 
 Search custom fields by type, name and optional value
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -233,8 +221,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'

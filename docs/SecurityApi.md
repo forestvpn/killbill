@@ -1,6 +1,6 @@
 # killbill.SecurityApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,13 +15,10 @@ Method | HTTP request | Description
 [**update_user_password**](SecurityApi.md#update_user_password) | **PUT** /1.0/kb/security/users/{username}/password | Update a user password
 [**update_user_roles**](SecurityApi.md#update_user_roles) | **PUT** /1.0/kb/security/users/{username}/roles | Update roles associated to a user
 
-
 # **add_role_definition**
 > RoleDefinition add_role_definition(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add a new role definition)
-
-
 
 ### Example
 ```python
@@ -30,7 +27,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -80,8 +76,6 @@ Name | Type | Description  | Notes
 
 Add a new user with roles (to make api requests)
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -89,7 +83,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -139,8 +132,6 @@ Name | Type | Description  | Notes
 
 List user permissions
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -148,7 +139,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -188,8 +178,6 @@ This endpoint does not need any parameter.
 
 Get user information
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -197,7 +185,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -237,8 +224,6 @@ This endpoint does not need any parameter.
 
 Get role definition
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -246,7 +231,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -290,8 +274,6 @@ Name | Type | Description  | Notes
 
 Get roles associated to a user
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -299,7 +281,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -343,8 +324,6 @@ Name | Type | Description  | Notes
 
 Invalidate an existing user
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -352,7 +331,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -391,8 +369,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -401,8 +379,6 @@ void (empty response body)
 
 Update a new role definition)
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -410,7 +386,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -450,16 +425,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_password**
-> update_user_password(username, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> update_user_password(body, x_killbill_created_by, username, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Update a user password
-
-
 
 ### Example
 ```python
@@ -468,7 +441,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -476,15 +448,15 @@ configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.SecurityApi(killbill.ApiClient(configuration))
-username = 'username_example' # str | 
 body = killbill.UserRoles() # UserRoles | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+username = 'username_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Update a user password
-    api_instance.update_user_password(username, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.update_user_password(body, x_killbill_created_by, username, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling SecurityApi->update_user_password: %s\n" % e)
 ```
@@ -493,9 +465,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**|  | 
  **body** | [**UserRoles**](UserRoles.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **username** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -510,16 +482,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_roles**
-> update_user_roles(username, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> update_user_roles(body, x_killbill_created_by, username, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Update roles associated to a user
-
-
 
 ### Example
 ```python
@@ -528,7 +498,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -536,15 +505,15 @@ configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.SecurityApi(killbill.ApiClient(configuration))
-username = 'username_example' # str | 
 body = killbill.UserRoles() # UserRoles | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+username = 'username_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Update roles associated to a user
-    api_instance.update_user_roles(username, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.update_user_roles(body, x_killbill_created_by, username, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling SecurityApi->update_user_roles: %s\n" % e)
 ```
@@ -553,9 +522,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **str**|  | 
  **body** | [**UserRoles**](UserRoles.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **username** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -570,7 +539,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

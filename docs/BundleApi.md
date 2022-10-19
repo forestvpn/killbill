@@ -1,6 +1,6 @@
 # killbill.BundleApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,13 +22,10 @@ Method | HTTP request | Description
 [**search_bundles**](BundleApi.md#search_bundles) | **GET** /1.0/kb/bundles/search/{searchKey} | Search bundles
 [**transfer_bundle**](BundleApi.md#transfer_bundle) | **POST** /1.0/kb/bundles/{bundleId} | Transfer a bundle to another account
 
-
 # **add_bundle_blocking_state**
-> list[BlockingState] add_bundle_blocking_state(bundle_id, body, x_killbill_created_by, requested_date=requested_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[BlockingState] add_bundle_blocking_state(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, plugin_property=plugin_property)
 
 Block a bundle
-
-
 
 ### Example
 ```python
@@ -47,25 +44,24 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
 body = killbill.BlockingState() # BlockingState | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-requested_date = '2013-10-20' # date |  (optional)
-plugin_property = ['plugin_property_example'] # list[str] |  (optional)
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+requested_date = '2013-10-20' # date |  (optional)
+plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Block a bundle
-    api_response = api_instance.add_bundle_blocking_state(bundle_id, body, x_killbill_created_by, requested_date=requested_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.add_bundle_blocking_state(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BundleApi->add_bundle_blocking_state: %s\n" % e)
@@ -75,13 +71,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundle_id** | [**str**](.md)|  | 
  **body** | [**BlockingState**](BlockingState.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **requested_date** | **date**|  | [optional] 
- **plugin_property** | [**list[str]**](str.md)|  | [optional] 
+ **bundle_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **requested_date** | **date**|  | [optional] 
+ **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
 
@@ -94,16 +90,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_bundle_custom_fields**
-> list[CustomField] create_bundle_custom_fields(bundle_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[CustomField] create_bundle_custom_fields(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add custom fields to bundle
-
-
 
 ### Example
 ```python
@@ -122,23 +116,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add custom fields to bundle
-    api_response = api_instance.create_bundle_custom_fields(bundle_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_bundle_custom_fields(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BundleApi->create_bundle_custom_fields: %s\n" % e)
@@ -148,9 +141,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundle_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **bundle_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -170,11 +163,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_bundle_tags**
-> list[Tag] create_bundle_tags(bundle_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[Tag] create_bundle_tags(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add tags to bundle
-
-
 
 ### Example
 ```python
@@ -193,23 +184,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
-body = [killbill.list[str]()] # list[str] | 
+body = ['body_example'] # list[str] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add tags to bundle
-    api_response = api_instance.create_bundle_tags(bundle_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_bundle_tags(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BundleApi->create_bundle_tags: %s\n" % e)
@@ -219,9 +209,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundle_id** | [**str**](.md)|  | 
- **body** | **list[str]**|  | 
+ **body** | [**list[str]**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **bundle_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -245,8 +235,6 @@ Name | Type | Description  | Notes
 
 Remove custom fields from bundle
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -264,15 +252,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 custom_field = ['custom_field_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -305,8 +292,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -314,8 +301,6 @@ void (empty response body)
 > delete_bundle_tags(bundle_id, x_killbill_created_by, tag_def=tag_def, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Remove tags from bundle
-
-
 
 ### Example
 ```python
@@ -334,15 +319,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 tag_def = ['tag_def_example'] # list[str] |  (optional)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
@@ -375,8 +359,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -384,8 +368,6 @@ void (empty response body)
 > Bundle get_bundle(bundle_id, audit=audit)
 
 Retrieve a bundle by id
-
-
 
 ### Example
 ```python
@@ -404,15 +386,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 audit = 'NONE' # str |  (optional) (default to NONE)
 
 try:
@@ -450,8 +431,6 @@ Name | Type | Description  | Notes
 
 Retrieve bundle audit logs with history by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -469,15 +448,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve bundle audit logs with history by id
@@ -513,8 +491,6 @@ Name | Type | Description  | Notes
 
 Retrieve a bundle by external key
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -532,8 +508,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -580,8 +555,6 @@ Name | Type | Description  | Notes
 
 Retrieve bundle custom fields
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -599,15 +572,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 audit = 'NONE' # str |  (optional) (default to NONE)
 
 try:
@@ -645,8 +617,6 @@ Name | Type | Description  | Notes
 
 Retrieve bundle tags
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -664,15 +634,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 included_deleted = false # bool |  (optional) (default to false)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
@@ -712,8 +681,6 @@ Name | Type | Description  | Notes
 
 List bundles
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -731,8 +698,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -775,11 +741,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **modify_bundle_custom_fields**
-> modify_bundle_custom_fields(bundle_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> modify_bundle_custom_fields(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Modify custom fields to bundle
-
-
 
 ### Example
 ```python
@@ -798,23 +762,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
 body = [killbill.CustomField()] # list[CustomField] | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Modify custom fields to bundle
-    api_instance.modify_bundle_custom_fields(bundle_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.modify_bundle_custom_fields(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling BundleApi->modify_bundle_custom_fields: %s\n" % e)
 ```
@@ -823,9 +786,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundle_id** | [**str**](.md)|  | 
  **body** | [**list[CustomField]**](CustomField.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **bundle_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -840,7 +803,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -848,8 +811,6 @@ void (empty response body)
 > pause_bundle(bundle_id, x_killbill_created_by, requested_date=requested_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Pause a bundle
-
-
 
 ### Example
 ```python
@@ -868,15 +829,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 requested_date = '2013-10-20' # date |  (optional)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
@@ -911,17 +871,15 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rename_external_key**
-> rename_external_key(bundle_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> rename_external_key(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Update a bundle externalKey
-
-
 
 ### Example
 ```python
@@ -940,23 +898,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
 body = killbill.Bundle() # Bundle | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Update a bundle externalKey
-    api_instance.rename_external_key(bundle_id, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_instance.rename_external_key(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling BundleApi->rename_external_key: %s\n" % e)
 ```
@@ -965,9 +922,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundle_id** | [**str**](.md)|  | 
  **body** | [**Bundle**](Bundle.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **bundle_id** | [**str**](.md)|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -991,8 +948,6 @@ void (empty response body)
 
 Resume a bundle
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1010,15 +965,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
 requested_date = '2013-10-20' # date |  (optional)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
@@ -1053,8 +1007,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1062,8 +1016,6 @@ void (empty response body)
 > list[Bundle] search_bundles(search_key, offset=offset, limit=limit, audit=audit)
 
 Search bundles
-
-
 
 ### Example
 ```python
@@ -1082,8 +1034,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1128,11 +1079,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **transfer_bundle**
-> Bundle transfer_bundle(bundle_id, body, x_killbill_created_by, requested_date=requested_date, billing_policy=billing_policy, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Bundle transfer_bundle(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, billing_policy=billing_policy, plugin_property=plugin_property)
 
 Transfer a bundle to another account
-
-
 
 ### Example
 ```python
@@ -1151,26 +1100,25 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.BundleApi(killbill.ApiClient(configuration))
-bundle_id = 'bundle_id_example' # str | 
 body = killbill.Bundle() # Bundle | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+bundle_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
+x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
+x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 requested_date = '2013-10-20' # date |  (optional)
 billing_policy = 'END_OF_TERM' # str |  (optional) (default to END_OF_TERM)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
-x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
-x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Transfer a bundle to another account
-    api_response = api_instance.transfer_bundle(bundle_id, body, x_killbill_created_by, requested_date=requested_date, billing_policy=billing_policy, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.transfer_bundle(body, x_killbill_created_by, bundle_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, requested_date=requested_date, billing_policy=billing_policy, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling BundleApi->transfer_bundle: %s\n" % e)
@@ -1180,14 +1128,14 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bundle_id** | [**str**](.md)|  | 
  **body** | [**Bundle**](Bundle.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **bundle_id** | [**str**](.md)|  | 
+ **x_killbill_reason** | **str**|  | [optional] 
+ **x_killbill_comment** | **str**|  | [optional] 
  **requested_date** | **date**|  | [optional] 
  **billing_policy** | **str**|  | [optional] [default to END_OF_TERM]
  **plugin_property** | [**list[str]**](str.md)|  | [optional] 
- **x_killbill_reason** | **str**|  | [optional] 
- **x_killbill_comment** | **str**|  | [optional] 
 
 ### Return type
 

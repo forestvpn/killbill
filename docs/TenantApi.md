@@ -1,6 +1,6 @@
 # killbill.TenantApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,13 +24,10 @@ Method | HTTP request | Description
 [**upload_plugin_configuration**](TenantApi.md#upload_plugin_configuration) | **POST** /1.0/kb/tenants/uploadPluginConfig/{pluginName} | Add a per tenant configuration for a plugin
 [**upload_plugin_payment_state_machine_config**](TenantApi.md#upload_plugin_payment_state_machine_config) | **POST** /1.0/kb/tenants/uploadPluginPaymentStateMachineConfig/{pluginName} | Add a per tenant payment state machine for a plugin
 
-
 # **create_tenant**
-> Tenant create_tenant(body, x_killbill_created_by, use_global_default=use_global_default, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> Tenant create_tenant(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, use_global_default=use_global_default)
 
 Create a tenant
-
-
 
 ### Example
 ```python
@@ -39,7 +36,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -49,13 +45,13 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.TenantApi(killbill.ApiClient(configuration))
 body = killbill.Tenant() # Tenant | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
-use_global_default = false # bool |  (optional) (default to false)
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
+use_global_default = false # bool |  (optional) (default to false)
 
 try:
     # Create a tenant
-    api_response = api_instance.create_tenant(body, x_killbill_created_by, use_global_default=use_global_default, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.create_tenant(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, use_global_default=use_global_default)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TenantApi->create_tenant: %s\n" % e)
@@ -67,9 +63,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**Tenant**](Tenant.md)|  | 
  **x_killbill_created_by** | **str**|  | 
- **use_global_default** | **bool**|  | [optional] [default to false]
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
+ **use_global_default** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -91,8 +87,6 @@ Name | Type | Description  | Notes
 
 Delete a per tenant configuration (system properties)
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -110,8 +104,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -157,8 +150,6 @@ void (empty response body)
 
 Delete a per tenant configuration for a plugin
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -176,8 +167,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -225,8 +215,6 @@ void (empty response body)
 
 Delete a per tenant payment state machine for a plugin
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -244,8 +232,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -293,8 +280,6 @@ void (empty response body)
 
 Delete a push notification
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -312,8 +297,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -359,8 +343,6 @@ void (empty response body)
 
 Delete  a per tenant user key/value
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -378,8 +360,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -427,8 +408,6 @@ void (empty response body)
 
 Retrieve a per tenant key value based on key prefix
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -446,8 +425,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -490,8 +468,6 @@ Name | Type | Description  | Notes
 
 Retrieve a per tenant configuration (system properties)
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -509,8 +485,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -549,8 +524,6 @@ This endpoint does not need any parameter.
 
 Retrieve a per tenant configuration for a plugin
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -568,8 +541,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -612,8 +584,6 @@ Name | Type | Description  | Notes
 
 Retrieve a per tenant payment state machine for a plugin
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -631,8 +601,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -675,8 +644,6 @@ Name | Type | Description  | Notes
 
 Retrieve a push notification
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -694,8 +661,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -734,8 +700,6 @@ This endpoint does not need any parameter.
 
 Retrieve a tenant by id
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -753,15 +717,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.TenantApi(killbill.ApiClient(configuration))
-tenant_id = 'tenant_id_example' # str | 
+tenant_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | 
 
 try:
     # Retrieve a tenant by id
@@ -797,8 +760,6 @@ Name | Type | Description  | Notes
 
 Retrieve a tenant by its API key
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -806,7 +767,6 @@ import time
 import killbill
 from killbill.rest import ApiException
 from pprint import pprint
-
 # Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
@@ -850,8 +810,6 @@ Name | Type | Description  | Notes
 
 Retrieve a per tenant user key/value
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -869,8 +827,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -909,11 +866,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **insert_user_key_value**
-> TenantKeyValue insert_user_key_value(key_name, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> TenantKeyValue insert_user_key_value(body, x_killbill_created_by, key_name, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add a per tenant user key/value
-
-
 
 ### Example
 ```python
@@ -932,23 +887,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.TenantApi(killbill.ApiClient(configuration))
-key_name = 'key_name_example' # str | 
 body = 'body_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+key_name = 'key_name_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add a per tenant user key/value
-    api_response = api_instance.insert_user_key_value(key_name, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.insert_user_key_value(body, x_killbill_created_by, key_name, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TenantApi->insert_user_key_value: %s\n" % e)
@@ -958,9 +912,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key_name** | **str**|  | 
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **key_name** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -984,8 +938,6 @@ Name | Type | Description  | Notes
 
 Create a push notification
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -1003,8 +955,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1043,7 +994,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1052,8 +1003,6 @@ Name | Type | Description  | Notes
 > TenantKeyValue upload_per_tenant_configuration(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add a per tenant configuration (system properties)
-
-
 
 ### Example
 ```python
@@ -1072,8 +1021,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -1097,7 +1045,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
@@ -1118,11 +1066,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_plugin_configuration**
-> TenantKeyValue upload_plugin_configuration(plugin_name, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> TenantKeyValue upload_plugin_configuration(body, x_killbill_created_by, plugin_name, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add a per tenant configuration for a plugin
-
-
 
 ### Example
 ```python
@@ -1141,23 +1087,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.TenantApi(killbill.ApiClient(configuration))
-plugin_name = 'plugin_name_example' # str | 
 body = 'body_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+plugin_name = 'plugin_name_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add a per tenant configuration for a plugin
-    api_response = api_instance.upload_plugin_configuration(plugin_name, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.upload_plugin_configuration(body, x_killbill_created_by, plugin_name, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TenantApi->upload_plugin_configuration: %s\n" % e)
@@ -1167,9 +1112,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **plugin_name** | **str**|  | 
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **plugin_name** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 
@@ -1189,11 +1134,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_plugin_payment_state_machine_config**
-> TenantKeyValue upload_plugin_payment_state_machine_config(plugin_name, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> TenantKeyValue upload_plugin_payment_state_machine_config(body, x_killbill_created_by, plugin_name, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add a per tenant payment state machine for a plugin
-
-
 
 ### Example
 ```python
@@ -1212,23 +1155,22 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.TenantApi(killbill.ApiClient(configuration))
-plugin_name = 'plugin_name_example' # str | 
 body = 'body_example' # str | 
 x_killbill_created_by = 'x_killbill_created_by_example' # str | 
+plugin_name = 'plugin_name_example' # str | 
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Add a per tenant payment state machine for a plugin
-    api_response = api_instance.upload_plugin_payment_state_machine_config(plugin_name, body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.upload_plugin_payment_state_machine_config(body, x_killbill_created_by, plugin_name, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TenantApi->upload_plugin_payment_state_machine_config: %s\n" % e)
@@ -1238,9 +1180,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **plugin_name** | **str**|  | 
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
+ **plugin_name** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
 

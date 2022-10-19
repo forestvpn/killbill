@@ -1,18 +1,15 @@
 # killbill.PluginInfoApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_plugins_info**](PluginInfoApi.md#get_plugins_info) | **GET** /1.0/kb/pluginsInfo | Retrieve the list of registered plugins
 
-
 # **get_plugins_info**
 > list[PluginInfo] get_plugins_info()
 
 Retrieve the list of registered plugins
-
-
 
 ### Example
 ```python
@@ -31,8 +28,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'

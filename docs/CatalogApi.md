@@ -1,6 +1,6 @@
 # killbill.CatalogApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,13 +17,10 @@ Method | HTTP request | Description
 [**get_product_for_subscription_and_date**](CatalogApi.md#get_product_for_subscription_and_date) | **GET** /1.0/kb/catalog/product | Retrieve product for a given subscription and date
 [**upload_catalog_xml**](CatalogApi.md#upload_catalog_xml) | **POST** /1.0/kb/catalog/xml | Upload the full catalog as XML
 
-
 # **add_simple_plan**
 > str add_simple_plan(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Add a simple plan entry in the current version of the catalog
-
-
 
 ### Example
 ```python
@@ -42,8 +39,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -92,8 +88,6 @@ Name | Type | Description  | Notes
 
 Delete all versions for a per tenant catalog
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -111,8 +105,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -158,8 +151,6 @@ void (empty response body)
 
 Retrieve available add-ons for a given product
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -177,8 +168,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -187,7 +177,7 @@ configuration.password = 'YOUR_PASSWORD'
 api_instance = killbill.CatalogApi(killbill.ApiClient(configuration))
 base_product_name = 'base_product_name_example' # str |  (optional)
 price_list_name = 'price_list_name_example' # str |  (optional)
-account_id = 'account_id_example' # str |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 
 try:
     # Retrieve available add-ons for a given product
@@ -225,8 +215,6 @@ Name | Type | Description  | Notes
 
 Retrieve available base plans
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -244,15 +232,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.CatalogApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 
 try:
     # Retrieve available base plans
@@ -288,8 +275,6 @@ Name | Type | Description  | Notes
 
 Retrieve the catalog as JSON
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -307,8 +292,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -316,7 +300,7 @@ configuration.password = 'YOUR_PASSWORD'
 # create an instance of the API class
 api_instance = killbill.CatalogApi(killbill.ApiClient(configuration))
 requested_date = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
-account_id = 'account_id_example' # str |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 
 try:
     # Retrieve the catalog as JSON
@@ -353,8 +337,6 @@ Name | Type | Description  | Notes
 
 Retrieve a list of catalog versions
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -372,15 +354,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.CatalogApi(killbill.ApiClient(configuration))
-account_id = 'account_id_example' # str |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 
 try:
     # Retrieve a list of catalog versions
@@ -416,8 +397,6 @@ Name | Type | Description  | Notes
 
 Retrieve the full catalog as XML
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -435,8 +414,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -444,7 +422,7 @@ configuration.password = 'YOUR_PASSWORD'
 # create an instance of the API class
 api_instance = killbill.CatalogApi(killbill.ApiClient(configuration))
 requested_date = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
-account_id = 'account_id_example' # str |  (optional)
+account_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 
 try:
     # Retrieve the full catalog as XML
@@ -481,8 +459,6 @@ Name | Type | Description  | Notes
 
 Retrieve phase for a given subscription and date
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -500,15 +476,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.CatalogApi(killbill.ApiClient(configuration))
-subscription_id = 'subscription_id_example' # str |  (optional)
+subscription_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 requested_date = '2013-10-20' # date |  (optional)
 
 try:
@@ -546,8 +521,6 @@ Name | Type | Description  | Notes
 
 Retrieve plan for a given subscription and date
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -565,15 +538,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.CatalogApi(killbill.ApiClient(configuration))
-subscription_id = 'subscription_id_example' # str |  (optional)
+subscription_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 requested_date = '2013-10-20' # date |  (optional)
 
 try:
@@ -611,8 +583,6 @@ Name | Type | Description  | Notes
 
 Retrieve priceList for a given subscription and date
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -630,15 +600,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.CatalogApi(killbill.ApiClient(configuration))
-subscription_id = 'subscription_id_example' # str |  (optional)
+subscription_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 requested_date = '2013-10-20' # date |  (optional)
 
 try:
@@ -676,8 +645,6 @@ Name | Type | Description  | Notes
 
 Retrieve product for a given subscription and date
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -695,15 +662,14 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = killbill.CatalogApi(killbill.ApiClient(configuration))
-subscription_id = 'subscription_id_example' # str |  (optional)
+subscription_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |  (optional)
 requested_date = '2013-10-20' # date |  (optional)
 
 try:
@@ -741,8 +707,6 @@ Name | Type | Description  | Notes
 
 Upload the full catalog as XML
 
-
-
 ### Example
 ```python
 from __future__ import print_function
@@ -760,8 +724,7 @@ configuration.api_key['X-Killbill-ApiKey'] = 'YOUR_API_KEY'
 configuration = killbill.Configuration()
 configuration.api_key['X-Killbill-ApiSecret'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'
-# Configure HTTP basic authorization: basicAuth
+# configuration.api_key_prefix['X-Killbill-ApiSecret'] = 'Bearer'# Configure HTTP basic authorization: basicAuth
 configuration = killbill.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
@@ -785,7 +748,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **str**|  | 
+ **body** | [**str**](str.md)|  | 
  **x_killbill_created_by** | **str**|  | 
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
@@ -801,7 +764,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: text/xml
- - **Accept**: Not defined
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
