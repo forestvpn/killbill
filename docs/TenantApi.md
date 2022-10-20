@@ -404,7 +404,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_plugin_configuration**
-> TenantKeyValue get_all_plugin_configuration(key_prefix)
+> list[TenantKeyValue] get_all_plugin_configuration(key_prefix)
 
 Retrieve a per tenant key value based on key prefix
 
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TenantKeyValue**](TenantKeyValue.md)
+[**list[TenantKeyValue]**](TenantKeyValue.md)
 
 ### Authorization
 
@@ -934,7 +934,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **register_push_notification_callback**
-> TenantKeyValue register_push_notification_callback(x_killbill_created_by, cb=cb, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> register_push_notification_callback(x_killbill_created_by, cb=cb, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Create a push notification
 
@@ -969,8 +969,7 @@ x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Create a push notification
-    api_response = api_instance.register_push_notification_callback(x_killbill_created_by, cb=cb, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
-    pprint(api_response)
+    api_instance.register_push_notification_callback(x_killbill_created_by, cb=cb, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 except ApiException as e:
     print("Exception when calling TenantApi->register_push_notification_callback: %s\n" % e)
 ```
@@ -986,7 +985,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TenantKeyValue**](TenantKeyValue.md)
+void (empty response body)
 
 ### Authorization
 
@@ -995,7 +994,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1760,7 +1760,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_invoices_for_account**
-> list[Invoice] get_invoices_for_account(account_id, start_date=start_date, end_date=end_date, with_migration_invoices=with_migration_invoices, unpaid_invoices_only=unpaid_invoices_only, include_voided_invoices=include_voided_invoices, audit=audit)
+> list[Invoice] get_invoices_for_account(account_id, start_date=start_date, end_date=end_date, with_migration_invoices=with_migration_invoices, unpaid_invoices_only=unpaid_invoices_only, include_voided_invoices=include_voided_invoices, invoices_filter=invoices_filter, audit=audit)
 
 Retrieve account invoices
 
@@ -1794,11 +1794,12 @@ end_date = '2013-10-20' # date |  (optional)
 with_migration_invoices = false # bool |  (optional) (default to false)
 unpaid_invoices_only = false # bool |  (optional) (default to false)
 include_voided_invoices = false # bool |  (optional) (default to false)
+invoices_filter = 'invoices_filter_example' # str |  (optional)
 audit = 'NONE' # str |  (optional) (default to NONE)
 
 try:
     # Retrieve account invoices
-    api_response = api_instance.get_invoices_for_account(account_id, start_date=start_date, end_date=end_date, with_migration_invoices=with_migration_invoices, unpaid_invoices_only=unpaid_invoices_only, include_voided_invoices=include_voided_invoices, audit=audit)
+    api_response = api_instance.get_invoices_for_account(account_id, start_date=start_date, end_date=end_date, with_migration_invoices=with_migration_invoices, unpaid_invoices_only=unpaid_invoices_only, include_voided_invoices=include_voided_invoices, invoices_filter=invoices_filter, audit=audit)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->get_invoices_for_account: %s\n" % e)
@@ -1814,6 +1815,7 @@ Name | Type | Description  | Notes
  **with_migration_invoices** | **bool**|  | [optional] [default to false]
  **unpaid_invoices_only** | **bool**|  | [optional] [default to false]
  **include_voided_invoices** | **bool**|  | [optional] [default to false]
+ **invoices_filter** | **str**|  | [optional] 
  **audit** | **str**|  | [optional] [default to NONE]
 
 ### Return type
@@ -2095,7 +2097,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pay_all_invoices**
-> pay_all_invoices(account_id, x_killbill_created_by, payment_method_id=payment_method_id, external_payment=external_payment, payment_amount=payment_amount, target_date=target_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+> list[Invoice] pay_all_invoices(account_id, x_killbill_created_by, payment_method_id=payment_method_id, external_payment=external_payment, payment_amount=payment_amount, target_date=target_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
 
 Trigger a payment for all unpaid invoices
 
@@ -2135,7 +2137,8 @@ x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 
 try:
     # Trigger a payment for all unpaid invoices
-    api_instance.pay_all_invoices(account_id, x_killbill_created_by, payment_method_id=payment_method_id, external_payment=external_payment, payment_amount=payment_amount, target_date=target_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    api_response = api_instance.pay_all_invoices(account_id, x_killbill_created_by, payment_method_id=payment_method_id, external_payment=external_payment, payment_amount=payment_amount, target_date=target_date, plugin_property=plugin_property, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountApi->pay_all_invoices: %s\n" % e)
 ```
@@ -2156,7 +2159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**list[Invoice]**](Invoice.md)
 
 ### Authorization
 
@@ -2165,7 +2168,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

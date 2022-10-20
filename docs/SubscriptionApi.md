@@ -254,7 +254,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_subscription**
-> Subscription create_subscription(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, migrated=migrated, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
+> Subscription create_subscription(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, migrated=migrated, skip_response=skip_response, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
 
 Create an subscription
 
@@ -290,13 +290,14 @@ entitlement_date = '2013-10-20' # date |  (optional)
 billing_date = '2013-10-20' # date |  (optional)
 rename_key_if_exists_and_unused = true # bool |  (optional) (default to true)
 migrated = false # bool |  (optional) (default to false)
+skip_response = false # bool |  (optional) (default to false)
 call_completion = false # bool |  (optional) (default to false)
 call_timeout_sec = 3 # int |  (optional) (default to 3)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Create an subscription
-    api_response = api_instance.create_subscription(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, migrated=migrated, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
+    api_response = api_instance.create_subscription(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, migrated=migrated, skip_response=skip_response, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SubscriptionApi->create_subscription: %s\n" % e)
@@ -314,6 +315,7 @@ Name | Type | Description  | Notes
  **billing_date** | **date**|  | [optional] 
  **rename_key_if_exists_and_unused** | **bool**|  | [optional] [default to true]
  **migrated** | **bool**|  | [optional] [default to false]
+ **skip_response** | **bool**|  | [optional] [default to false]
  **call_completion** | **bool**|  | [optional] [default to false]
  **call_timeout_sec** | **int**|  | [optional] [default to 3]
  **plugin_property** | [**list[str]**](str.md)|  | [optional] 
@@ -467,7 +469,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_subscription_with_add_ons**
-> Bundle create_subscription_with_add_ons(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, migrated=migrated, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
+> Bundle create_subscription_with_add_ons(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, migrated=migrated, skip_response=skip_response, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
 
 Create an entitlement with addOn products
 
@@ -502,6 +504,7 @@ x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 entitlement_date = '2013-10-20' # date |  (optional)
 billing_date = '2013-10-20' # date |  (optional)
 migrated = false # bool |  (optional) (default to false)
+skip_response = false # bool |  (optional) (default to false)
 rename_key_if_exists_and_unused = true # bool |  (optional) (default to true)
 call_completion = false # bool |  (optional) (default to false)
 call_timeout_sec = 3 # int |  (optional) (default to 3)
@@ -509,7 +512,7 @@ plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Create an entitlement with addOn products
-    api_response = api_instance.create_subscription_with_add_ons(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, migrated=migrated, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
+    api_response = api_instance.create_subscription_with_add_ons(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, migrated=migrated, skip_response=skip_response, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SubscriptionApi->create_subscription_with_add_ons: %s\n" % e)
@@ -526,6 +529,7 @@ Name | Type | Description  | Notes
  **entitlement_date** | **date**|  | [optional] 
  **billing_date** | **date**|  | [optional] 
  **migrated** | **bool**|  | [optional] [default to false]
+ **skip_response** | **bool**|  | [optional] [default to false]
  **rename_key_if_exists_and_unused** | **bool**|  | [optional] [default to true]
  **call_completion** | **bool**|  | [optional] [default to false]
  **call_timeout_sec** | **int**|  | [optional] [default to 3]
@@ -547,7 +551,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_subscriptions_with_add_ons**
-> list[Bundle] create_subscriptions_with_add_ons(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, migrated=migrated, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
+> list[Bundle] create_subscriptions_with_add_ons(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, migrated=migrated, skip_response=skip_response, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
 
 Create multiple entitlements with addOn products
 
@@ -583,13 +587,14 @@ entitlement_date = '2013-10-20' # date |  (optional)
 billing_date = '2013-10-20' # date |  (optional)
 rename_key_if_exists_and_unused = true # bool |  (optional) (default to true)
 migrated = false # bool |  (optional) (default to false)
+skip_response = false # bool |  (optional) (default to false)
 call_completion = false # bool |  (optional) (default to false)
 call_timeout_sec = 3 # int |  (optional) (default to 3)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Create multiple entitlements with addOn products
-    api_response = api_instance.create_subscriptions_with_add_ons(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, migrated=migrated, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
+    api_response = api_instance.create_subscriptions_with_add_ons(body, x_killbill_created_by, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, entitlement_date=entitlement_date, billing_date=billing_date, rename_key_if_exists_and_unused=rename_key_if_exists_and_unused, migrated=migrated, skip_response=skip_response, call_completion=call_completion, call_timeout_sec=call_timeout_sec, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SubscriptionApi->create_subscriptions_with_add_ons: %s\n" % e)
@@ -607,6 +612,7 @@ Name | Type | Description  | Notes
  **billing_date** | **date**|  | [optional] 
  **rename_key_if_exists_and_unused** | **bool**|  | [optional] [default to true]
  **migrated** | **bool**|  | [optional] [default to false]
+ **skip_response** | **bool**|  | [optional] [default to false]
  **call_completion** | **bool**|  | [optional] [default to false]
  **call_timeout_sec** | **int**|  | [optional] [default to 3]
  **plugin_property** | [**list[str]**](str.md)|  | [optional] 

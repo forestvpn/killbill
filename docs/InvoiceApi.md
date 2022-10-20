@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_instant_payment**
-> InvoicePayment create_instant_payment(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, external_payment=external_payment, plugin_property=plugin_property)
+> InvoicePayment create_instant_payment(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, external_payment=external_payment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
 
 Trigger a payment for invoice
 
@@ -352,11 +352,12 @@ invoice_id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str |
 x_killbill_reason = 'x_killbill_reason_example' # str |  (optional)
 x_killbill_comment = 'x_killbill_comment_example' # str |  (optional)
 external_payment = false # bool |  (optional) (default to false)
+control_plugin_name = ['control_plugin_name_example'] # list[str] |  (optional)
 plugin_property = ['plugin_property_example'] # list[str] |  (optional)
 
 try:
     # Trigger a payment for invoice
-    api_response = api_instance.create_instant_payment(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, external_payment=external_payment, plugin_property=plugin_property)
+    api_response = api_instance.create_instant_payment(body, x_killbill_created_by, invoice_id, x_killbill_reason=x_killbill_reason, x_killbill_comment=x_killbill_comment, external_payment=external_payment, control_plugin_name=control_plugin_name, plugin_property=plugin_property)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling InvoiceApi->create_instant_payment: %s\n" % e)
@@ -372,6 +373,7 @@ Name | Type | Description  | Notes
  **x_killbill_reason** | **str**|  | [optional] 
  **x_killbill_comment** | **str**|  | [optional] 
  **external_payment** | **bool**|  | [optional] [default to false]
+ **control_plugin_name** | [**list[str]**](str.md)|  | [optional] 
  **plugin_property** | [**list[str]**](str.md)|  | [optional] 
 
 ### Return type
